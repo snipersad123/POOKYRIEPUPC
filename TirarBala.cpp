@@ -199,7 +199,6 @@ public:
 	void AnalizayEliminarBala();
 	int GetContador_Eliminados();
 };
-//impl barco
 Murcielago::Murcielago(int px, int py) {
 	x = 75; y = 14; dy = 1; alto = 3; ancho = 4; contador_eliminados = 0;
 }
@@ -215,7 +214,7 @@ void Murcielago::Borrar() {
 	Console::SetCursorPosition(x, y + 2); cout << "     ";
 }
 void Murcielago::Mover() {
-	if (y + dy < 5 || y + dy + alto>24)dy *= -1;
+	if (y + dy < 0 || y + dy + alto>24)dy *= -1;
 	y += dy;
 }
 //impl balas
@@ -239,7 +238,7 @@ void Murcielago::InsertaBala() {
 }
 void Murcielago::AnalizayEliminarBala() {
 	if (vecbalas.size() > 0) {
-		if (vecbalas[0].GetX() == 0) {
+		if (vecbalas[0].GetX() == 1) {
 			vecbalas.erase(vecbalas.begin());
 			contador_eliminados++;
 		}
